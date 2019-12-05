@@ -1,0 +1,91 @@
+	printf("Witaj uzytkowniku!\nWybierz odpowiednia cyferka w przedziale 1-5 co program ma zrobic.\n");
+	
+	
+	int wybor, czy_wczytal_liczbe = 0;
+	double liczba_1, liczba_2;
+
+	while (1)
+	{
+		printf("\n0.Zakonczenie programu\n1.Wczytaj liczby.\n");
+		printf("2. Dodaj\n3.Odejmij\n");
+		printf("4.Pomnoz\n5.Podziel\n\n");
+		
+		while (scanf_s("%d", &wybor) != 1 || wybor < 0 || wybor > 5 || getchar() != '\n')
+		{
+			printf("wybierz liczbe od 1 do 5: ");
+			while (getchar() != '\n')
+			{
+				;
+			}
+		}
+		
+		switch (wybor)
+		{
+		case 0:
+			printf("Zakonczyles dzialanie programu.\n");
+			return;
+		case 1:
+			printf("Wczytaj dwie liczby: ");
+				while (scanf_s("%lf%lf", &liczba_1, &liczba_2) != 2  || getchar() != '\n')
+				{
+					printf("blad - wprowadz dane jeszcze raz: ");
+					while (getchar() != '\n')
+					{
+						;
+					}
+
+				}
+				czy_wczytal_liczbe = 1;
+				break;
+		case 2:
+			if (czy_wczytal_liczbe)
+			{
+				printf("oto wynik dodawania dwoch podanych wczesniej liczb: %g\n", liczba_1 + liczba_2);
+			}
+			else
+			{
+				printf("nie wczytales przynajmiej jednej liczby.\n");
+			}
+			break;
+		case 3:
+			if (czy_wczytal_liczbe)
+			{
+				printf("oto wynik odejmowania dwoch podanych wczesniej liczb: %g\n", liczba_1 - liczba_2);
+			}
+			else
+			{
+				printf("nie wczytales przynajmiej jednej liczby.\n");
+			}
+			break;
+		case 4:
+			if (czy_wczytal_liczbe)
+			{
+				printf("oto wynik mnozenia dwoch podanych wczesniej liczb: %g\n", liczba_1 * liczba_2);
+			}
+			else
+			{
+				printf("nie wczytales przynajmiej jednej liczby.\n");
+			}
+			break;
+		case 5:
+			if (czy_wczytal_liczbe)
+			{
+				if (liczba_2 != 0)
+				{
+					printf("oto wynik dzielenia dwoch podanych wczesniej liczb: %g\n", liczba_1 / liczba_2);
+				}
+				else
+				{
+					printf("Nie mozna dzielic przez zero\n");
+				}
+			}
+			else
+			{
+				printf("nie wczytales przynajmiej jednej liczby.");
+			}
+			break;
+		break;
+		}
+
+
+	}
